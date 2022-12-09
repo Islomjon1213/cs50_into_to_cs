@@ -44,7 +44,7 @@ int calculate_quarters(int cents)
     int coins = 0;
     while (cents >= 25)
     {
-        coins = coins - 25;
+        cents = cents - 25;
         coins++;
     }
     return coins;
