@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// protypes for functions
 int get_cents();
 int calculate_quarters(int cents);
 int calculate_dimes(int cents);
@@ -8,25 +9,32 @@ int calculate_pennies(int cents);
 
 int main()
 {
+    // get value from the user
     int cents = get_cents();
 
+    // calculate quarter coins
     int quarters = calculate_quarters(cents);
     cents = cents - quarters * 25;
 
+    // calculate dimes coins
     int dimes = calculate_dimes(cents);
     cents = cents - dimes * 10;
 
+    // calculate nickles coins
     int nickels = calculate_nickels(cents);
     cents = cents - nickels * 5;
 
+    // calculate pennies coins
     int pennies = calculate_pennies(cents);
     cents = cents - pennies * 1;
 
+    // calculate and print total coins
     int total = quarters + dimes + nickels + pennies;
     printf("Total is %d\n", total);
     return 0;
 }
 
+// function for get input from the user
 int get_cents()
 {
     int sum;
@@ -39,6 +47,7 @@ int get_cents()
     return sum;
 }
 
+// function for calculate quarters
 int calculate_quarters(int cents)
 {
     int coins = 0;
@@ -50,6 +59,7 @@ int calculate_quarters(int cents)
     return coins;
 }
 
+// function for calculate dimes
 int calculate_dimes(int cents)
 {
     int coins = 0;
@@ -61,6 +71,7 @@ int calculate_dimes(int cents)
     return coins;
 }
 
+// function for calculate nickles
 int calculate_nickels(int cents)
 {
     int coins = 0;
@@ -72,6 +83,7 @@ int calculate_nickels(int cents)
     return coins;
 }
 
+// function for calculate pennies
 int calculate_pennies(int cents)
 {
     int coins = 0;
