@@ -3,8 +3,8 @@
 
 void printCreditBrands(long long creditNumber);
 bool creditValid(long long creditNumber);
-int findLengthofCard(long long n);
-bool checkSum(long long n);
+int findLengthofCard(long long creditNumber);
+bool checkSum(long long creditNumber);
 
 int main(void)
 {
@@ -35,23 +35,23 @@ bool creditValid(long long creditNumber)
     }
 }
 
-int findLengthofCard(long long n)
+int findLengthofCard(long long creditNumber)
 {
     int len;
-    for(len = 0; n != 0; n /= 10, len++);
+    for(len = 0; creditNumber != 0; creditNumber /= 10, len++);
     return len;
 }
-bool checkSum(long long n)
+bool checkSum(long long creditNumber)
 {
     int sum = 0;
-    for(int i = 0; n != 0; n /= 10, i++)
+    for(int i = 0; creditNumber != 0; creditNumber /= 10, i++)
     {
         if(i % 2 == 0)
         {
-            sum += n % 10;
+            sum += creditNumber % 10;
         }else
         {
-            int digit = 2 * (n % 10);
+            int digit = 2 * (creditNumber % 10);
             sum += digit/10 + digit % 10;
         }
     } return (sum % 10) == 0;
