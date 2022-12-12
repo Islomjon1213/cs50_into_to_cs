@@ -1,24 +1,27 @@
-#include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 
-bool check_digit(string keys);
-void print_ciphertext(string words, int key);
+bool check_digit(char * keys);
+void print_ciphertext(char * words, int key);
 
-int main(int argc, string argv[])
+int main(int argc, char * argv[])
 {
     // check if argc is equal to 2
     if (argc == 2)
     {
+        char * keys;
         // check if value from the user is digit or not
-        if (check_digit(argv[1]))
+        if (check_digit(argv[1]) == true)
         {
             // convert argv string value to integer value
             int key = atoi(argv[1]);
-            string words = get_string("plaintext: ");
+            char words[1000];
+            printf("Plaintext: ");
+            fgets(words, 1000, stdin);
             // recall print_ciphertext function to print outputs
             print_ciphertext(words, key);
             // return 0 to represent program runs correctly
@@ -32,7 +35,7 @@ int main(int argc, string argv[])
 }
 
 // boolen funcion to return value from the user is digit or not
-bool check_digit(string keys)
+bool check_digit(char * keys)
 {
     int len = strlen(keys);
     for (int i = 0; i < len; i++)
@@ -50,7 +53,7 @@ bool check_digit(string keys)
 }
 
 // void function to print outputs
-void print_ciphertext(string words, int key)
+void print_ciphertext(char words[1000], int key)
 {
     int len = strlen(words);
     printf("ciphertext: ");
