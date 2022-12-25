@@ -1,6 +1,3 @@
-// this is a just file which should be complited by teachers
-// 
-
 #include "helpers.h"
 #include <math.h>
 

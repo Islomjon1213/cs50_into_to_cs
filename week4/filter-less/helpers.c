@@ -1,5 +1,3 @@
-// this is a just file which it should be complited by students
-
 #include "helpers.h"
 #include <stdio.h>
 #include <math.h>

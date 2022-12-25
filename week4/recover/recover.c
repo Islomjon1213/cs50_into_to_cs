@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     // create new file to put images into that file
     FILE *new_file = NULL;
 
-    // create filename variable by using malloc to put files inside that file
+    // create filename variable to put files inside that file
     char filename[8];
 
     // make loop to read given file to search valid GPEG image file
@@ -40,12 +40,11 @@ int main(int argc, char *argv[])
         // check first 4 bytes to find out if this is image or not
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            //this code will close the previous .jpg file when you find the new .jpg file
+            // this code will close previous .jpg file before findng new file
             if (count_image > 0)
             {
                 fclose(new_file);
             }
-
             sprintf(filename, "%03i.jpg", count_image);
 
             // open new file as writing type do copy everything from filename to this new file
@@ -61,10 +60,11 @@ int main(int argc, char *argv[])
             // if file is valid then write everything from buffer to new_file
             fwrite(buffer, sizeof(char), 512, new_file);
         }
-      }
+    }
 
-      // and finally close every file which was opened for a while ago
-      fclose(given_file);
-      fclose(new_file);
-      return 0;
+    // and finally close every file which was opened for a while ago
+    fclose(given_file);
+    fclose(new_file);
+
+    return 0;
 }
